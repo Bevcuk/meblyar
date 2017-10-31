@@ -1,0 +1,168 @@
+{% load staticfiles %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
+	<title>Главная</title>
+	<link rel="stylesheet" href="{% static 'libs/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.min.css' %}" />
+
+</head>
+<body class="loaded">
+
+							
+<!-- BEGIN BODY -->
+
+<div class="main-wrapper">
+
+<!-- BEGIN CONTENT -->
+
+<!-- CONTENT EOF   -->
+
+<!-- BEGIN HEADER -->
+
+<header>
+		<div class="left-menu">
+
+			<div class="logo">
+				<a class="logo__link" href="#">
+					<img class="logo__img" src="{%  static 'img/logo.png'%}" alt="logo">
+					<span class="logo__text">МЕБЛЯР</span>
+				</a>
+			</div>
+
+			<ul class="menu">
+				<li style="background-image: url({%  static 'img/m_dsp.png'%})" class="menu__item submenu drop-down-click">
+					<a class="menu__link" href="#">Плиточні матеріали</a>
+					<div>
+					<ul style="background-image: url({%  static 'img/drop.jpg'%})" class="submenu-container dropdown-menu one" >
+						{% for plutni in plutni %}
+							<li  class="submenu-container__item">
+							<a class="submenu-container__link" href="#">{{plutni.subcategory_id}}</a>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+
+				</li>
+				<li style="background-image: url({%  static 'img/m_meb.png'%})" class="menu__item"><a class="menu__link"  href="#">Мебельна фурнітура</a></li>
+				<li style="background-image: url({%  static 'img/m_rdw.png'%})" class="menu__item"><a class="menu__link" href="#">Скло</a></li>
+				<li style="background-image: url({%  static 'img/m_kr.png'%})" class="menu__item"><a class="menu__link" href="#">Кромка</a></li>
+				<li style="background-image: url({%  static 'img/m_usl.png'%})" class="menu__item"><a class="menu__link" href="#">Послуги</a></li>
+
+			</ul>
+	</div>
+
+
+</header>
+
+<div class="wrapper-shadow">
+	<div class="slider">
+		<div class="slider__img" style="background-image: url({%  static 'img/slide1.png'%})"></div>
+		<div class="slider__img" style="background-image: url({%  static 'img/slide1.png'%})"></div>
+		<div class="slider__img" style="background-image: url({%  static 'img/slide1.png'%})"></div>
+	</div>
+	<div class="partners">
+		<div class="partners__title">
+			<span>Торгові марки</span>
+			<div class="colorLine"></div>
+		</div>
+		<div class="partners__item" style="background-image: url({%  static 'img/lyuks_form_logo.png'%})"></div>
+		<div class="partners__item" style="background-image: url({%  static 'img/swiss-krono-logo.png'%})"></div>
+		<div class="partners__item" style="background-image: url({%  static 'img/Svisspan.png'%})"></div>
+
+	</div>
+	<div style="background-image: url({%  static 'img/stenki.jpeg'%})" class="advantages">
+		<div class="advantages-block">
+			<div  class="advantages__item">
+				<i class="fa fa-briefcase advantages__item__ico" aria-hidden="true"></i>
+				<span class="advantages__item__title">Винятковий досвід</span>
+				<span class="advantages__item__text">20 років на ринку</span>
+			</div>
+			<div  class="advantages__item">
+				<i class="fa fa-briefcase advantages__item__ico" aria-hidden="true"></i>
+				<span class="advantages__item__title">Винятковий досвід</span>
+				<span class="advantages__item__text">20 років на ринку</span>
+			</div>
+			<div  class="advantages__item">
+				<i class="fa fa-briefcase advantages__item__ico" aria-hidden="true"></i>
+				<span class="advantages__item__title">Винятковий досвід</span>
+				<span class="advantages__item__text">20 років на ринку</span>
+			</div>
+			<div  class="advantages__item">
+				<i class="fa fa-briefcase advantages__item__ico" aria-hidden="true"></i>
+				<span class="advantages__item__title">Винятковий досвід</span>
+				<span class="advantages__item__text">20 років на ринку</span>
+			</div>
+		</div>
+	</div>
+	<div class="information">
+		<div class="information-block">
+			<div class="information__title">
+				<span>ІНДИВІДУАЛЬНИЙ ПІДХІД</span>
+				<div class="colorLine"></div>
+			</div>
+			<div class="information__text">Ми розуміємо всю складність і специфічність роботи в даній сфері — саме тому наші фахівці знаходять індивідуальний підхід до кожного клієнта і ретельно ставляться до кожної деталі вироби, з якою їм доведеться працювати.</div>
+		</div>
+		<div class="information-block">
+			<div class="information__title">
+				<span>ШИРОКИЙ АСОРТИМЕНТ</span>
+				<div class="colorLine"></div>
+			</div>
+			<div class="information__text">На складі компанії зберігається безліч зразків матеріалів, асортимент регулярно оновлюється і поповнюється. На етапі консультації та узгодження робіт наші співробітники приїжджають до вас із зразками, щоб ви могли підібрати підходящий варіант оббивки безпосередньо в інтер’єрі.</div>
+		</div>
+		<div class="information-block">
+			<div class="information__title">
+				<span>ТРАНСПОРТУВАННЯ МЕБЛІВ</span>
+				<div class="colorLine"></div>
+			</div>
+			<div class="information__text">Всі реставраційні роботи проводяться в майстерні, де є доступ до всіх необхідних інструментів і матеріалів. Ми гарантуємо збереження меблів при доставці і навантаженні.</div>
+		</div>
+	</div>
+	<footer>
+		<div class="footer-item">
+			<span class="footer-item__title">Контакти</span>
+			<span class="footer-item__adress"> <i class=" footer-item__fa fa fa-map-marker" aria-hidden="true"></i> <span class="link-opacity">вул. Донбасівська 1.б </span></span>
+			<span class="footer-item__phone"><i class="footer-item__fa fa fa-info-circle" aria-hidden="true"></i> <span class="link-opacity"> +38 (044) 500 57 07</span></span>
+		</div>
+		<div class="footer-item footer-center">
+			<span class="footer-item__title">Інформаційна підтримка</span>
+			<a class="footer-item__link" href="#">Про нас</a>
+			<a class="footer-item__link" href="#">Контакти</a>
+			<a class="footer-item__link" href="#">Каталог</a>
+		</div>
+		<div class="footer-item">
+			<span class="footer-item__title">Соціальні мережі</span>
+			<a class="footer-item__link" href=""> <i class=" footer-item__fa fa fa-vk" aria-hidden="true"></i> Ми в контакті</a>
+			<a class="footer-item__link" href=""><i class="footer-item__fa fa fa-facebook" aria-hidden="true"></i> Фейзбук</a>
+		</div>
+	</footer>
+</div>
+	
+<!-- HEADER EOF   -->	
+
+<!-- BEGIN FOOTER -->	
+	
+
+	
+<!-- FOOTER EOF   -->
+
+</div>		
+
+<div class="icon-load"></div>		
+
+<!-- BODY EOF   -->
+	
+	<script type="text/javascript" src="{%  static 'js/jquery-3.0.0.min.js'%}"></script>
+	<script type="text/javascript" src="{%  static 'js/jquery-migrate-1.4.1.min.js'%}" ></script>
+	<script type="text/javascript" src="{%  static 'js/components/slick.js'%}" ></script>
+	<!--
+	<script type="text/javascript" src="js/components/jquery.fancybox.js" ></script>
+	<script type="text/javascript" src="js/components/jquery.formstyler.js" ></script>
+	<script type="text/javascript" src="js/components/slick.js" ></script>
+	<script type="text/javascript" src="js/components/jquery.mCustomScrollbar.js" ></script>
+	-->
+	<script type="text/javascript" src="{%  static 'js/custom.js'%}" ></script>
+</body>
+</html>

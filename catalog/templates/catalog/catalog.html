@@ -1,0 +1,162 @@
+{% load staticfiles %}
+{% load catalogue_filters %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
+	<title>Главная</title>
+	<link rel="stylesheet" href="{%  static 'libs/font-awesome-4.7.0/css/font-awesome.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%  static 'css/catalog.min.css'%}" />
+	<link rel="stylesheet" href="{%  static 'libs/dist/css/lightbox.min.css'%}">
+
+
+</head>
+<body class="loaded">
+
+							
+<!-- BEGIN BODY -->
+
+<div class="main-wrapper">
+
+<!-- BEGIN CONTENT -->
+
+<!-- CONTENT EOF   -->
+
+<!-- BEGIN HEADER -->
+
+<header>
+		<div class="left-menu">
+
+			<div class="logo">
+				<a class="logo__link" href="#">
+					<img class="logo__img" src="{%  static 'img/logo.png'%}" alt="logo">
+					<span class="logo__text">МЕБЛЯР</span>
+				</a>
+			</div>
+
+			<ul class="menu">
+				<li style="background-image: url({%  static 'img/m_dsp.png'%})" class="menu__item submenu">
+					<a class="menu__link" href="#">Плиточні матеріали</a>
+					<ul class="submenu-container dropdown-menu">
+						<li  class="submenu-container__item">
+							<a class="submenu-container__link" href="#">Chicago</a>
+						</li>
+						<li class="submenu-container__item">
+							<a class="submenu-container__link" href="#">Los Angeles</a>
+						</li>
+						<li class="submenu-container__item submenu submenu--rotate">
+							<a class="submenu-container__link" href="#">New York</a>
+						</li>
+						<li class="submenu-container__item">
+							<a class="submenu-container__link" href="#">Seattle</a>
+						</li>
+					</ul>
+				</li>
+				<li style="background-image: url({%  static 'img/m_meb.png'%})" class="menu__item"><a class="menu__link"  href="#">Мебельна фурнітура</a></li>
+				<li style="background-image: url({%  static 'img/m_rdw.png'%})" class="menu__item"><a class="menu__link" href="#">Скло</a></li>
+				<li style="background-image: url({%  static 'img/m_kr.png'%})" class="menu__item"><a class="menu__link" href="#">Кромка</a></li>
+				<li style="background-image: url({%  static 'img/m_usl.png'%})" class="menu__item"><a class="menu__link" href="#">Послуги</a></li>
+
+			</ul>
+	</div>
+
+
+</header>
+
+<div class="wrapper-shadow">
+	<div style="background-image: url({%  static 'img/back.png'%})" class="banner">
+		<div class="banner-position">
+			<div class="banner__title">Плиточні матеріали</div>
+			<div class="banner__text">МДФ робляться базові деталі виробництва корпусних меблів. Основні види плит: ДСП, ДВП, МДФ, OSB. Кожна різновид знаходить застосування, відповідаючи певним цілям майстра.</div>
+		</div>
+	</div>
+
+	<div class="content-wrapper">
+	<div class="filter">
+		<div class="filter__category-title">
+			{{ category.name }}
+
+		</div>
+		<ul class="subcategory">
+			 {% for subcategory in subcategories %}
+				<li class="subcategory__item"><a  href="/catalog/{{category.slug}}_{{subcategory.subcategory_id.slug}}"  {% if subcategory.subcategory_id.slug in request.path|partition_url %} class="link-active" {% endif %}>{{ subcategory.subcategory_id}}</a></li>
+			{% endfor %}
+		</ul>
+
+		{% for key, value in extra_params.extra_to_dict.items %}
+		  <div class="filter-part">
+			<div class="filter__title">{{ key }}</div>
+			  <ul class="filter__item">
+			{% for parameter in value|split_by:'/' %}
+				{% create_full_param key|ctm_slugify parameter|ctm_slugify as sluged_new_item %}
+				  <li {{ request.path|check_if_url_contain:sluged_new_item }}><a href="{{ request.path|check_right_url:sluged_new_item}}" class="filter__link"><i class="check-item"></i>{{ parameter }}</a></li>
+			{% endfor %}
+			</ul>
+		  </div>
+		{% endfor %}
+	</div>
+
+	<div class="catalog">
+	{% for product in products %}
+		<a class="catalog__link" href="{%  static product.image.first.slice_ref %}" data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+			<img class="catalog__image" src="{%  static product.image.first.slice_ref %}" alt=""/>
+			<span class="catalog__description">{{ product.title }}</span>
+		</a>
+	{% empty %}
+		<div style="min-height: 200px;">
+			<p style="text-align: center">Обрана категорія поки що порожня</p>
+		</div>
+	{% endfor %}
+
+	</div>
+	</div>
+
+	<footer>
+		<div class="footer-item">
+			<span class="footer-item__title">Контакти</span>
+			<span class="footer-item__adress"> <i class=" footer-item__fa fa fa-map-marker" aria-hidden="true"></i> <span class="link-opacity">вул. Донбасівська 1.б </span></span>
+			<span class="footer-item__phone"><i class="footer-item__fa fa fa-info-circle" aria-hidden="true"></i> <span class="link-opacity"> +38 (044) 500 57 07</span></span>
+		</div>
+		<div class="footer-item footer-center">
+			<span class="footer-item__title">Інформаційна підтримка</span>
+			<a class="footer-item__link" href="#">Про нас</a>
+			<a class="footer-item__link" href="#">Контакти</a>
+			<a class="footer-item__link" href="#">Каталог</a>
+		</div>
+		<div class="footer-item">
+			<span class="footer-item__title">Соціальні мережі</span>
+			<a class="footer-item__link" href=""> <i class=" footer-item__fa fa fa-vk" aria-hidden="true"></i> Ми в контакті</a>
+			<a class="footer-item__link" href=""><i class="footer-item__fa fa fa-facebook" aria-hidden="true"></i> Фейзбук</a>
+		</div>
+	</footer>
+	</div>
+
+</div>
+	
+<!-- HEADER EOF   -->	
+
+<!-- BEGIN FOOTER -->	
+	
+
+	
+<!-- FOOTER EOF   -->
+
+<div class="icon-load"></div>
+
+
+<!-- BODY EOF   -->
+	
+	<script type="text/javascript" src="{%  static 'js/jquery-3.0.0.min.js'%}"></script>
+	<script type="text/javascript" src="{%  static 'js/jquery-migrate-1.4.1.min.js'%}" ></script>
+	<script type="text/javascript" src="{%  static 'js/components/slick.js'%}" ></script>
+	<!--
+	<script type="text/javascript" src="js/components/jquery.fancybox.js" ></script>
+	<script type="text/javascript" src="js/components/jquery.formstyler.js" ></script>
+	<script type="text/javascript" src="js/components/slick.js" ></script>
+	<script type="text/javascript" src="js/components/jquery.mCustomScrollbar.js" ></script>
+	-->
+	<script src="{%  static 'libs/dist/js/lightbox.min.js'%}"></script>
+	<script type="text/javascript" src="{%  static 'js/custom.js'%}" ></script>
+</body>
+</html>
