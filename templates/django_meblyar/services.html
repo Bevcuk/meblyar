@@ -1,0 +1,152 @@
+{% load staticfiles %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
+	<title>Главная</title>
+	<link rel="stylesheet" href="{% static 'libs/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	<!--<link rel="stylesheet" type="text/css" href="css/style.min.css" />-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/services.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/hamburger.css' %}" />
+
+</head>
+<body class="loaded">
+
+
+<!-- BEGIN BODY -->
+
+<div class="main-wrapper">
+
+<!-- BEGIN CONTENT -->
+
+<!-- CONTENT EOF   -->
+
+<!-- BEGIN HEADER -->
+{% include "menu.html" with category=category_all category_all=category_all %}
+
+<div class="wrapper-shadow">
+	<div class="video-bg">
+		<video  preload="auto" autoplay="autoplay"
+			   loop="loop">
+			<span>lklklk</span>
+			<source src="{% static 'img/video.webm' %}" type="video/mp4"></source>
+			<!--<source src="bg/daisy-stock-webm-video.webm" type="video/webm"></source>-->
+		</video>
+	</div>
+	<div class="service">
+		<div  class="service-item active-part"  onclick='On1(1);'>
+			<div style="background-image: url({% static 'img/001-1.png' %})" class="service-item__img ">
+			</div>
+			<span class="service-item__text ">Розпил</span>
+
+		</div>
+		<div  class="service-item" onclick='On2(1); '>
+			<div style="background-image: url({% static 'img/002.png' %})" class="service-item__img">
+			</div>
+			<span class="service-item__text">Фрезерування</span>
+		</div>
+		<div  class="service-item" onclick='On3(1);'>
+			<div style="background-image: url({% static 'img/003.png' %})" class="service-item__img">
+			</div>
+			<span class="service-item__text">Кромкування</span>
+		</div>
+	</div>
+	<div class="content content-active" id="1">
+		<div class="content__title">
+			<span>ІНДИВІДУАЛЬНИЙ ПІДХІД</span>
+			<div class="colorLine"></div>
+		</div>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias asperiores, consequuntur corporis eligendi error facilis harum molestias nam non, perspiciatis provident quas quisquam ratione repellendus sunt tenetur veritatis, vitae.
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta dolorem earum enim, ex excepturi inventore iure magnam necessitatibus obcaecati perferendis quis repellendus, sapiente! A adipisci, illo iusto nulla provident recusandae!
+
+	</div>	<div class="content" id="2">
+		<div class="content__title">
+			<span>ІНДИВІДУАЛЬНИЙ ПІДХІД2</span>
+			<div class="colorLine"></div>
+		</div>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias asperiores, consequuntur corporis eligendi error facilis harum molestias nam non, perspiciatis provident quas quisquam ratione repellendus sunt tenetur veritatis, vitae.
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta dolorem earum enim, ex excepturi inventore iure magnam necessitatibus obcaecati perferendis quis repellendus, sapiente! A adipisci, illo iusto nulla provident recusandae!
+
+	</div>	<div class="content" id="3">
+		<div class="content__title">
+			<span>ІНДИВІДУАЛЬНИЙ ПІДХІД3</span>
+			<div class="colorLine"></div>
+		</div>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias asperiores, consequuntur corporis eligendi error facilis harum molestias nam non, perspiciatis provident quas quisquam ratione repellendus sunt tenetur veritatis, vitae.
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta dolorem earum enim, ex excepturi inventore iure magnam necessitatibus obcaecati perferendis quis repellendus, sapiente! A adipisci, illo iusto nulla provident recusandae!
+
+	</div>
+	<div style="background-image: url({% static 'img/girl.png' %})" class="banner-about">
+
+	</div>
+
+
+	<footer>
+		<div class="footer-item">
+			<span class="footer-item__title">Контакти</span>
+			<span class="footer-item__adress"> <i class=" footer-item__fa fa fa-map-marker" aria-hidden="true"></i> <span class="link-opacity">вул. Донбасівська 1.б </span></span>
+			<span class="footer-item__phone"><i class="footer-item__fa fa fa-info-circle" aria-hidden="true"></i> <span class="link-opacity"> +38 (044) 500 57 07</span></span>
+		</div>
+		<div class="footer-item footer-center">
+			<span class="footer-item__title">Інформаційна підтримка</span>
+			<a class="footer-item__link" href="{% url 'services' %}">Послуги</a>
+			<a class="footer-item__link" href="{% url 'contact' %}">Контакти</a>
+
+		</div>
+		<div class="footer-item">
+			<span class="footer-item__title">Соціальні мережі</span>
+			<a class="footer-item__link" href=""> <i class=" footer-item__fa fa fa-vk" aria-hidden="true"></i> Ми в контакті</a>
+			<a class="footer-item__link" href=""><i class="footer-item__fa fa fa-facebook" aria-hidden="true"></i> Фейзбук</a>
+		</div>
+	</footer>
+</div>
+	
+<!-- HEADER EOF   -->	
+
+<!-- BEGIN FOOTER -->	
+	
+
+	
+<!-- FOOTER EOF   -->
+
+</div>		
+
+<div class="icon-load"></div>		
+
+<!-- BODY EOF   -->
+	
+	<script type="text/javascript" src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery-migrate-1.4.1.min.js' %}" ></script>
+	<script type="text/javascript" src="{% static 'js/components/slick.js' %}" ></script>
+	<!--
+	<script type="text/javascript" src="js/components/jquery.fancybox.js" ></script>
+	<script type="text/javascript" src="js/components/jquery.formstyler.js" ></script>
+	<script type="text/javascript" src="js/components/slick.js" ></script>
+	<script type="text/javascript" src="js/components/jquery.mCustomScrollbar.js" ></script>
+	-->
+	<script type="text/javascript" src="{% static 'js/custom.js' %}" ></script>
+	 <script>
+
+        function On1(N) {
+            document.getElementById('1').style.display = 'block';
+            document.getElementById('2').style.display = 'none';
+            document.getElementById('3').style.display = 'none';
+        }
+
+        function On3(N) {
+            document.getElementById('3').style.display = 'block';
+            document.getElementById('2').style.display = 'none';
+            document.getElementById('1').style.display = 'none';
+        }
+    </script>
+
+    <script>
+        function On2(N) {
+            document.getElementById('2').style.display = 'block';
+            document.getElementById('1').style.display = 'none';
+            document.getElementById('3').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

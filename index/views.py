@@ -6,11 +6,17 @@ from django.shortcuts import render
 # Create your views here.
 from django.views.generic import ListView
 
-from catalog.models import Subcategory, ProductFrom
+from catalog.models import Subcategory, ProductFrom, Category
 
 
-def index(request):
-    return render(request, 'index.html', {})
+def services(request):
+    category_all = Category.objects.all()
+    return render(request, 'services.html', {'category_all':category_all})
+
+
+def contact(request):
+    category_all = Category.objects.all()
+    return render(request, 'contact.html', {'category_all':category_all})
 
 
 class IndexPage(ListView):
@@ -24,6 +30,8 @@ class IndexPage(ListView):
     def get_context_data(self, *args, **kwargs):
         context = super(IndexPage, self).get_context_data()
         context['plutni'] =ProductFrom.objects.filter(category_id__slug='plitni-materiali')
+        context['category'] =Category.objects.all()
+        context['category_all'] = Category.objects.all()
         # context['extra_params'] = Subcategory.objects.get(slug=self.kwargs['subcategory_slug'])
         if self.get_queryset().count() == 1:
             context['single_queryset'] = True

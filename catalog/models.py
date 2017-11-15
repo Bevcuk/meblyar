@@ -14,9 +14,16 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=45)
     slug = models.SlugField(default='')
+    image = models.FileField(upload_to='django_meblyar/static/django_meblyar/img/categories/', blank=False,
+                             null=True)
 
     def __str__(self):
         return self.name
+
+    def slice_ref(self):
+        ref = str(self.image)
+        i = ref.find('img/')
+        return ref[i:len(ref)]
 
 
 class Subcategory(models.Model):

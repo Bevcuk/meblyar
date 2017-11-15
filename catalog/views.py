@@ -45,6 +45,7 @@ class ProductsPage(ListView):
             page_set = paginator.page(paginator.num_pages)
 
         context['products'] = page_set
+        context['category_all'] = Category.objects.all()
         context['category'] = get_object_or_404(Category, slug=self.kwargs['category_slug'])
         # context['category'] = ProductFrom.objects.filter(subcategory_id__slug=self.kwargs['subcategory_slug']).first()
         subcategory = ProductFrom.objects.filter(category_id__slug=self.kwargs['category_slug'])
@@ -96,6 +97,7 @@ class FilteredProductsPage(ListView):
         context['products'] = page_set
 
         context['category'] = get_object_or_404(Category, slug=self.kwargs['category_slug'])
+        context['category_all'] = Category.objects.all()
         subcategory = ProductFrom.objects.filter(category_id__slug=self.kwargs['category_slug'])
         context['subcategories'] = subcategory
         context['extra_params'] = Subcategory.objects.get(slug=self.kwargs['subcategory_slug'])

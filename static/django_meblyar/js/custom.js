@@ -173,6 +173,23 @@ $(document).ready(function(){
 $(function(){
 
     // Prevent two submenus from being opened at once
+    $('.service-item').on('click',function(event){    // Prevent two submenus from being opened at once
+
+        if(!($(this).hasClass("active-part"))){
+            $('.service-item').removeClass("active-part");
+            $(this).addClass('active-part');
+        }
+        else {
+            $(this).removeClass('active-part');
+        }
+
+        event.preventDefault()
+    });
+});
+
+$(function(){
+
+    // Prevent two submenus from being opened at once
     $('li.drop-down-click>a').on('click',function(event){    // Prevent two submenus from being opened at once
         $(this).parent().find('div').first().toggle(300);
         $(this).parent().siblings().find('div').hide(200);

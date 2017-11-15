@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="{%  static 'libs/font-awesome-4.7.0/css/font-awesome.min.css'%}">
 	<link rel="stylesheet" type="text/css" href="{%  static 'css/catalog.min.css'%}" />
 	<link rel="stylesheet" href="{%  static 'libs/dist/css/lightbox.min.css'%}">
-
+	<link rel="stylesheet" type="text/css" href="{%  static 'css/hamburger.css'%}" />
 
 </head>
 <body class="loaded">
@@ -24,46 +24,7 @@
 <!-- CONTENT EOF   -->
 
 <!-- BEGIN HEADER -->
-
-<header>
-		<div class="left-menu">
-
-			<div class="logo">
-				<a class="logo__link" href="#">
-					<img class="logo__img" src="{%  static 'img/logo.png'%}" alt="logo">
-					<span class="logo__text">МЕБЛЯР</span>
-				</a>
-			</div>
-
-			<ul class="menu">
-				<li style="background-image: url({%  static 'img/m_dsp.png'%})" class="menu__item submenu">
-					<a class="menu__link" href="#">Плиточні матеріали</a>
-					<ul class="submenu-container dropdown-menu">
-						<li  class="submenu-container__item">
-							<a class="submenu-container__link" href="#">Chicago</a>
-						</li>
-						<li class="submenu-container__item">
-							<a class="submenu-container__link" href="#">Los Angeles</a>
-						</li>
-						<li class="submenu-container__item submenu submenu--rotate">
-							<a class="submenu-container__link" href="#">New York</a>
-						</li>
-						<li class="submenu-container__item">
-							<a class="submenu-container__link" href="#">Seattle</a>
-						</li>
-					</ul>
-				</li>
-				<li style="background-image: url({%  static 'img/m_meb.png'%})" class="menu__item"><a class="menu__link"  href="#">Мебельна фурнітура</a></li>
-				<li style="background-image: url({%  static 'img/m_rdw.png'%})" class="menu__item"><a class="menu__link" href="#">Скло</a></li>
-				<li style="background-image: url({%  static 'img/m_kr.png'%})" class="menu__item"><a class="menu__link" href="#">Кромка</a></li>
-				<li style="background-image: url({%  static 'img/m_usl.png'%})" class="menu__item"><a class="menu__link" href="#">Послуги</a></li>
-
-			</ul>
-	</div>
-
-
-</header>
-
+{% include "menu.html" with category=category_all category_all=category_all %}
 <div class="wrapper-shadow">
 	<div style="background-image: url({%  static 'img/back.png'%})" class="banner">
 		<div class="banner-position">
@@ -73,6 +34,9 @@
 	</div>
 
 	<div class="content-wrapper">
+	<div class="filter-button">
+			<button>Фільтр</button>
+	</div>
 	<div class="filter">
 		<div class="filter__category-title">
 			{{ category.name }}
@@ -120,9 +84,9 @@
 		</div>
 		<div class="footer-item footer-center">
 			<span class="footer-item__title">Інформаційна підтримка</span>
-			<a class="footer-item__link" href="#">Про нас</a>
-			<a class="footer-item__link" href="#">Контакти</a>
-			<a class="footer-item__link" href="#">Каталог</a>
+			<a class="footer-item__link" href="{% url 'services' %}">Послуги</a>
+			<a class="footer-item__link" href="{% url 'contact' %}">Контакти</a>
+
 		</div>
 		<div class="footer-item">
 			<span class="footer-item__title">Соціальні мережі</span>
