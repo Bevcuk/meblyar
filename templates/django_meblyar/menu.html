@@ -1,69 +1,10 @@
-{% load staticfiles %}
-{% load static%}
-<header>
-		<div class="left-menu">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
 
-			<div class="logo">
-				<a class="logo__link" href="/">
-					<img class="logo__img" src="{%  static 'img/logo.png'%}" alt="logo">
-					<span class="logo__text">МЕБЛЯР</span>
-				</a>
-			</div>
-
-			<ul class="menu">
-				{% for category in category%}
-				<li style="background-image: url({% static category.slice_ref %})" class="menu__item submenu drop-down-click" category_name="{{category.slug}}" >
-					<a class="menu__link" href="{% static category.slice_ref %}">{{category.name}}</a>
-					 {% load menu %}
-					{%subcategory param=category.slug  as subcategory %}
-					<div>
-					<ul style="background-image: url({%  static 'img/drop.jpg'%})" class="submenu-container dropdown-menu one" >
-						{% for subcategory in subcategory %}
-							<li  class="submenu-container__item">
-							<a class="submenu-container__link" href="/catalog/{{category.slug}}_{{subcategory.subcategory_id.slug}}">{{subcategory.subcategory_id}}</a>
-						</li>
-						{% endfor %}
-					</ul>
-				</div>
-
-				</li>
-
-				{% endfor %}
-			<li style="background-image: url({%  static 'img/m_usl.png'%})" class="menu__item"><a class="menu__link" href="/services">Послуги</a></li>
-			</ul>
-	</div>
-
-
-</header>
-	<div id="menu-container">
-		<div id="menu-wrapper">
-			<div id="hamburger-menu"><span></span><span></span><span></span></div>
-			<!-- hamburger-menu -->
-			<div class="logo">
-				<a class="logo__link" href="/">
-					<img class="logo__img" src="{%  static 'img/logo.png'%} " alt="logo">
-					<span class="logo__text">МЕБЛЯР</span>
-				</a>
-			</div>
-		</div>
-
-		<!-- menu-wrapper -->
-		<ul class="menu-list accordion">
-		{% for category_all in category_all %}
-			<li id="nav1" class="toggle accordion-toggle">
-				<span class="icon-plus"></span>
-				<a class="menu-link" href="#">{{category_all.name}}</a>
-			</li>
-			<!-- accordion-toggle -->
-			 {% load menu %}
-			{%subcategory param=category_all.slug  as subcategory %}
-			<ul class="menu-submenu accordion-content">
-				{% for subcategory in subcategory %}
-				<li><a class="head" href="/catalog/{{subcategory.category_id.slug}}_{{subcategory.subcategory_id.slug}}">{{subcategory.subcategory_id}}</a></li>
-				{% endfor%}
-			</ul>
-
-		{% endfor %}
-		</ul>
-		<!-- menu-list accordion-->
-	</div>
+</body>
+</html>

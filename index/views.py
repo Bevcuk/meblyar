@@ -10,13 +10,7 @@ from catalog.models import Subcategory, ProductFrom, Category
 
 
 def services(request):
-    category_all = Category.objects.all()
-    return render(request, 'services.html', {'category_all':category_all})
-
-
-def contact(request):
-    category_all = Category.objects.all()
-    return render(request, 'contact.html', {'category_all':category_all})
+    return render(request, 'services.html', {})
 
 
 class IndexPage(ListView):

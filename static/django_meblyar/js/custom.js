@@ -173,33 +173,16 @@ $(document).ready(function(){
 $(function(){
 
     // Prevent two submenus from being opened at once
-    $('.service-item').on('click',function(event){    // Prevent two submenus from being opened at once
+    $('li.drop-down-click').on('click',function(event){    // Prevent two submenus from being opened at once
+        $(this).find('a').parent().find('.menu-wrapper').first().toggleClass('opened');
+        $(this).find('a').parent().siblings().find('.menu-wrapper').removeClass('opened');
 
-        if(!($(this).hasClass("active-part"))){
-            $('.service-item').removeClass("active-part");
-            $(this).addClass('active-part');
-        }
-        else {
-            $(this).removeClass('active-part');
-        }
-
-        event.preventDefault()
-    });
-});
-
-$(function(){
-
-    // Prevent two submenus from being opened at once
-    $('li.drop-down-click>a').on('click',function(event){    // Prevent two submenus from being opened at once
-        $(this).parent().find('div').first().toggle(300);
-        $(this).parent().siblings().find('div').hide(200);
-        //$('.menu__link').removeClass("link-hover");
-        if(!($(this).hasClass("link-hover"))){
+        if(!($(this).find('a').hasClass("link-hover"))){
             $('.menu__link').removeClass("link-hover");
-            $(this).addClass('link-hover');
+            $(this).find('a').addClass('link-hover');
         }
         else {
-            $(this).removeClass('link-hover');
+            $(this).find('a').removeClass('link-hover');
         }
 
         event.preventDefault()

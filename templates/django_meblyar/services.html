@@ -5,7 +5,7 @@
 	<meta name="format-detection" content="telephone=no">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
 	<title>Главная</title>
-	<link rel="stylesheet" href="{% static 'libs/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="libs/font-awesome-4.7.0/css/font-awesome.min.css">
 	<!--<link rel="stylesheet" type="text/css" href="css/style.min.css" />-->
 	<link rel="stylesheet" type="text/css" href="{% static 'css/services.min.css' %}" />
 	<link rel="stylesheet" type="text/css" href="{% static 'css/hamburger.css' %}" />
@@ -13,7 +13,7 @@
 </head>
 <body class="loaded">
 
-
+							
 <!-- BEGIN BODY -->
 
 <div class="main-wrapper">
@@ -23,8 +23,121 @@
 <!-- CONTENT EOF   -->
 
 <!-- BEGIN HEADER -->
-{% include "menu.html" with category=category_all category_all=category_all %}
 
+<header>
+
+	<!-- menu-container -->
+
+
+		<div class="left-menu">
+
+			<div class="logo">
+				<a class="logo__link" href="#">
+					<img class="logo__img" src="{% static 'img/logo.png' %}" alt="logo">
+					<span class="logo__text">МЕБЛЯР</span>
+				</a>
+			</div>
+
+			<ul class="menu">
+				<li style="background-image: url({% static 'img/m_dsp.png' %})" class="menu__item submenu drop-down-click">
+					<a class="menu__link" href="#">Плиточні матеріали</a>
+					<div>
+					<ul style="background-image: url({% static 'img/drop.jpg' %})" class="submenu-container dropdown-menu one" >
+						<li   class="submenu-container__item">
+							<a class="submenu-container__link" href="#">Chicago</a>
+						</li>
+						<li class="submenu-container__item">
+							<a class="submenu-container__link" href="#">Los Angeles</a>
+						</li>
+						<li class="submenu-container__item submenu submenu--rotate">
+							<a class="submenu-container__link" href="#">New York</a>
+						</li>
+						<li class="submenu-container__item">
+							<a class="submenu-container__link" href="#">Seattle</a>
+						</li>
+					</ul>
+				</div>
+
+				</li>
+				<li style="background-image: url({% static 'img/m_meb.png' %})" class="menu__item drop-down-click"><a class="menu__link"  href="#">Мебельна фурнітура</a>
+					<div>
+					<ul class="submenu-container dropdown-menu" >
+						<li  class="submenu-container__item">
+							<a class="submenu-container__link" href="#">Chicagoppp</a>
+
+						</li>
+						<li class="submenu-container__item">
+							<a class="submenu-container__link" href="#">Los Angeles</a>
+						</li>
+						<li class="submenu-container__item submenu submenu--rotate">
+							<a class="submenu-container__link" href="#">New York</a>
+						</li>
+						<li class="submenu-container__item">
+							<a class="submenu-container__link" href="#">Seattle</a>
+						</li>
+					</ul>
+					</div>
+				</li>
+				<li style="background-image: url({% static 'img/m_rdw.png' %})" class="menu__item"><a class="menu__link" href="#">Скло</a></li>
+				<li style="background-image: url({% static 'img/m_kr.png' %})" class="menu__item"><a class="menu__link" href="#">Кромка</a></li>
+				<li style="background-image: url({% static 'img/m_usl.png' %})" class="menu__item"><a class="menu__link" href="#">Послуги</a></li>
+
+			</ul>
+			<div  style="background-image: url({% static 'img/logobutton.png' %})" class="menu-logo__button"></div>
+	</div>
+
+
+</header>
+	<div id="menu-container">
+		<div id="menu-wrapper">
+			<div id="hamburger-menu"><span></span><span></span><span></span></div>
+			<!-- hamburger-menu -->
+			<div class="logo">
+				<a class="logo__link" href="#">
+					<img class="logo__img" src="img/logo.png" alt="logo">
+					<span class="logo__text">МЕБЛЯР</span>
+				</a>
+			</div>
+		</div>
+
+		<!-- menu-wrapper -->
+		<ul class="menu-list accordion">
+			<li id="nav1" class="toggle accordion-toggle">
+				<span class="icon-plus"></span>
+				<a class="menu-link" href="#">Menu1</a>
+			</li>
+			<!-- accordion-toggle -->
+			<ul class="menu-submenu accordion-content">
+				<li><a class="head" href="#">Submenu1</a></li>
+				<li><a class="head" href="#">Submenu2</a></li>
+				<li><a class="head" href="#">Submenu3</a></li>
+			</ul>
+			<!-- menu-submenu accordon-content-->
+			<li id="nav2" class="toggle accordion-toggle">
+				<span class="icon-plus"></span>
+				<a class="menu-link" href="#">Menu2</a>
+			</li>
+			<!-- accordion-toggle -->
+			<ul class="menu-submenu accordion-content">
+				<li><a class="head" href="#">Submenu1</a></li>
+				<li><a class="head" href="#">Submenu2</a></li>
+			</ul>
+			<!-- menu-submenu accordon-content-->
+			<li id="nav3" class="toggle accordion-toggle">
+				<span class="icon-plus"></span>
+				<a class="menu-link" href="#">Menu3</a>
+			</li>
+			<!-- accordion-toggle -->
+			<ul class="menu-submenu accordion-content">
+				<li><a class="head" href="#">Submenu1</a></li>
+				<li><a class="head" href="#">Submenu2</a></li>
+				<li><a class="head" href="#">Submenu3</a></li>
+				<li><a class="head" href="#">Submenu4</a></li>
+			</ul>
+			<!-- menu-submenu accordon-content-->
+		</ul>
+		<!-- menu-list accordion-->
+	</div>
 <div class="wrapper-shadow">
 	<div class="video-bg">
 		<video  preload="auto" autoplay="autoplay"
@@ -35,42 +148,26 @@
 		</video>
 	</div>
 	<div class="service">
-		<div  class="service-item active-part"  onclick='On1(1);'>
+		<div  class="service-item active-part">
 			<div style="background-image: url({% static 'img/001-1.png' %})" class="service-item__img ">
 			</div>
 			<span class="service-item__text ">Розпил</span>
 
 		</div>
-		<div  class="service-item" onclick='On2(1); '>
+		<div  class="service-item">
 			<div style="background-image: url({% static 'img/002.png' %})" class="service-item__img">
 			</div>
 			<span class="service-item__text">Фрезерування</span>
 		</div>
-		<div  class="service-item" onclick='On3(1);'>
+		<div  class="service-item">
 			<div style="background-image: url({% static 'img/003.png' %})" class="service-item__img">
 			</div>
 			<span class="service-item__text">Кромкування</span>
 		</div>
 	</div>
-	<div class="content content-active" id="1">
+	<div class="content">
 		<div class="content__title">
 			<span>ІНДИВІДУАЛЬНИЙ ПІДХІД</span>
-			<div class="colorLine"></div>
-		</div>
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias asperiores, consequuntur corporis eligendi error facilis harum molestias nam non, perspiciatis provident quas quisquam ratione repellendus sunt tenetur veritatis, vitae.
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta dolorem earum enim, ex excepturi inventore iure magnam necessitatibus obcaecati perferendis quis repellendus, sapiente! A adipisci, illo iusto nulla provident recusandae!
-
-	</div>	<div class="content" id="2">
-		<div class="content__title">
-			<span>ІНДИВІДУАЛЬНИЙ ПІДХІД2</span>
-			<div class="colorLine"></div>
-		</div>
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias asperiores, consequuntur corporis eligendi error facilis harum molestias nam non, perspiciatis provident quas quisquam ratione repellendus sunt tenetur veritatis, vitae.
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta dolorem earum enim, ex excepturi inventore iure magnam necessitatibus obcaecati perferendis quis repellendus, sapiente! A adipisci, illo iusto nulla provident recusandae!
-
-	</div>	<div class="content" id="3">
-		<div class="content__title">
-			<span>ІНДИВІДУАЛЬНИЙ ПІДХІД3</span>
 			<div class="colorLine"></div>
 		</div>
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias asperiores, consequuntur corporis eligendi error facilis harum molestias nam non, perspiciatis provident quas quisquam ratione repellendus sunt tenetur veritatis, vitae.
@@ -90,9 +187,9 @@
 		</div>
 		<div class="footer-item footer-center">
 			<span class="footer-item__title">Інформаційна підтримка</span>
-			<a class="footer-item__link" href="{% url 'services' %}">Послуги</a>
-			<a class="footer-item__link" href="{% url 'contact' %}">Контакти</a>
-
+			<a class="footer-item__link" href="#">Про нас</a>
+			<a class="footer-item__link" href="#">Контакти</a>
+			<a class="footer-item__link" href="#">Каталог</a>
 		</div>
 		<div class="footer-item">
 			<span class="footer-item__title">Соціальні мережі</span>
@@ -116,37 +213,15 @@
 
 <!-- BODY EOF   -->
 	
-	<script type="text/javascript" src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/jquery-migrate-1.4.1.min.js' %}" ></script>
-	<script type="text/javascript" src="{% static 'js/components/slick.js' %}" ></script>
+	<script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>		
+	<script type="text/javascript" src="js/jquery-migrate-1.4.1.min.js" ></script>
+	<script type="text/javascript" src="js/components/slick.js" ></script>
 	<!--
 	<script type="text/javascript" src="js/components/jquery.fancybox.js" ></script>
 	<script type="text/javascript" src="js/components/jquery.formstyler.js" ></script>
 	<script type="text/javascript" src="js/components/slick.js" ></script>
 	<script type="text/javascript" src="js/components/jquery.mCustomScrollbar.js" ></script>
 	-->
-	<script type="text/javascript" src="{% static 'js/custom.js' %}" ></script>
-	 <script>
-
-        function On1(N) {
-            document.getElementById('1').style.display = 'block';
-            document.getElementById('2').style.display = 'none';
-            document.getElementById('3').style.display = 'none';
-        }
-
-        function On3(N) {
-            document.getElementById('3').style.display = 'block';
-            document.getElementById('2').style.display = 'none';
-            document.getElementById('1').style.display = 'none';
-        }
-    </script>
-
-    <script>
-        function On2(N) {
-            document.getElementById('2').style.display = 'block';
-            document.getElementById('1').style.display = 'none';
-            document.getElementById('3').style.display = 'none';
-        }
-    </script>
+	<script type="text/javascript" src="js/custom.js" ></script>
 </body>
 </html>

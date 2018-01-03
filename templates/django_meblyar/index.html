@@ -22,7 +22,74 @@
 <!-- CONTENT EOF   -->
 
 <!-- BEGIN HEADER -->
-{% include "menu.html" with category=category category_all=category_all %}
+
+<header>
+		<div class="left-menu">
+
+			<div class="logo">
+				<a class="logo__link" href="/">
+					<img class="logo__img" src="{%  static 'img/logo.png'%}" alt="logo">
+					<span class="logo__text">МЕБЛЯР</span>
+				</a>
+			</div>
+
+			<ul class="menu">
+				{% for category in category%}
+				<li style="background-image: url({% static category.slice_ref %})" class="menu__item submenu drop-down-click" category_name="{{category.slug}}" >
+					<a class="menu__link" href="{% static category.slice_ref %}">{{category.name}}</a>
+					 {% load menu %}
+					{%subcategory param=category.slug  as subcategory %}
+					<div class="menu-wrapper">
+					<ul style="background-image: url({%  static 'img/drop.jpg'%})" class="submenu-container dropdown-menu one" >
+						{% for subcategory in subcategory %}
+							<li  class="submenu-container__item">
+							<a class="submenu-container__link" href="/catalog/{{category.slug}}_{{subcategory.subcategory_id.slug}}">{{subcategory.subcategory_id}}</a>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+
+				</li>
+
+				{% endfor %}
+			<li style="background-image: url({%  static 'img/m_usl.png'%})" class="menu__item"><a class="menu__link" href="/services">Послуги</a></li>
+			</ul>
+	</div>
+
+
+</header>
+	<div id="menu-container">
+		<div id="menu-wrapper">
+			<div id="hamburger-menu"><span></span><span></span><span></span></div>
+			<!-- hamburger-menu -->
+			<div class="logo">
+				<a class="logo__link" href="/">
+					<img class="logo__img" src="{%  static 'img/logo.png'%} " alt="logo">
+					<span class="logo__text">МЕБЛЯР</span>
+				</a>
+			</div>
+		</div>
+
+		<!-- menu-wrapper -->
+		<ul class="menu-list accordion">
+		{% for category_all in category_all %}
+			<li id="nav1" class="toggle accordion-toggle">
+				<span class="icon-plus"></span>
+				<a class="menu-link" href="#">{{category_all.name}}</a>
+			</li>
+			<!-- accordion-toggle -->
+			 {% load menu %}
+			{%subcategory param=category_all.slug  as subcategory %}
+			<ul class="menu-submenu accordion-content">
+				{% for subcategory in subcategory %}
+				<li><a class="head" href="/catalog/{{subcategory.category_id.slug}}_{{subcategory.subcategory_id.slug}}">{{subcategory.subcategory_id}}</a></li>
+				{% endfor%}
+			</ul>
+
+		{% endfor %}
+		</ul>
+		<!-- menu-list accordion-->
+	</div>
 <div class="wrapper-shadow">
 	<div class="slider">
 		<div class="slider__img" style="background-image: url({%  static 'img/slide1.png'%})"></div>
@@ -47,19 +114,19 @@
 				<span class="advantages__item__text">20 років на ринку</span>
 			</div>
 			<div  class="advantages__item">
-				<i class="fa fa-lightbulb-o advantages__item__ico" aria-hidden="true"></i>
-				<span class="advantages__item__title">Іновації</span>
-				<span class="advantages__item__text">Бути на крок попереду-задача номер один</span>
+				<i class="fa fa-briefcase advantages__item__ico" aria-hidden="true"></i>
+				<span class="advantages__item__title">Винятковий досвід</span>
+				<span class="advantages__item__text">20 років на ринку</span>
 			</div>
 			<div  class="advantages__item">
-				<i class="fa fa-users advantages__item__ico" aria-hidden="true"></i>
-				<span class="advantages__item__title">Команда</span>
-				<span class="advantages__item__text">Команда справжніх професіоналів</span>
+				<i class="fa fa-briefcase advantages__item__ico" aria-hidden="true"></i>
+				<span class="advantages__item__title">Винятковий досвід</span>
+				<span class="advantages__item__text">20 років на ринку</span>
 			</div>
 			<div  class="advantages__item">
-				<i class="fa fa-address-card-o advantages__item__ico" aria-hidden="true"></i>
-				<span class="advantages__item__title">Надійність</span>
-				<span class="advantages__item__text">Ми будуємо довгострокові стосунки</span>
+				<i class="fa fa-briefcase advantages__item__ico" aria-hidden="true"></i>
+				<span class="advantages__item__title">Винятковий досвід</span>
+				<span class="advantages__item__text">20 років на ринку</span>
 			</div>
 		</div>
 	</div>
@@ -94,9 +161,9 @@
 		</div>
 		<div class="footer-item footer-center">
 			<span class="footer-item__title">Інформаційна підтримка</span>
-			<a class="footer-item__link" href="{% url 'services' %}">Послуги</a>
-			<a class="footer-item__link" href="{% url 'contact' %}">Контакти</a>
-
+			<a class="footer-item__link" href="#">Про нас</a>
+			<a class="footer-item__link" href="#">Контакти</a>
+			<a class="footer-item__link" href="#">Каталог</a>
 		</div>
 		<div class="footer-item">
 			<span class="footer-item__title">Соціальні мережі</span>
